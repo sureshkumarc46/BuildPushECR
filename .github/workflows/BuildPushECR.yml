@@ -62,7 +62,7 @@ jobs:
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
-        task-definition: ${{ steps.cgafrica-new-backend-task.outputs.task-definition }}
+        task-definition: flask-docker1
         service: cgafrica-backend-service
         cluster: cgafrica-backend-cluster
         wait-for-service-stability: true
