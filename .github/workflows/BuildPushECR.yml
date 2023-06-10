@@ -42,13 +42,13 @@ jobs:
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
         task-definition: .github/workflows/task-definition.json
-        container-name: flask-docker1
+        container-name: flask-docker2
         image: flask_demo_image
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: .github/workflows/task-definition.json
-        service: flask-docker1
-        cluster: flask-docker1
+        service: flask-docker2
+        cluster: flask-dockr2
         wait-for-service-stability: true

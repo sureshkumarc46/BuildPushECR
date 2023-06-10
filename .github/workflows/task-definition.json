@@ -1,33 +1,54 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:041952152622:task-definition/flask-docker1:4",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:041952152622:task-definition/flask-docker2:2",
     "containerDefinitions": [
         {
-            "name": "flask-docker1",
-            "image": "041952152622.dkr.ecr.us-east-1.amazonaws.com/flask-docker",
-            "cpu": 1024,
-            "memory": 2048,
+            "name": "flask-docker2",
+            "image": "041952152622.dkr.ecr.us-east-1.amazonaws.com/docker_flask_demo:flask_demo_image",
+            "cpu": 0,
             "portMappings": [
                 {
+                    "name": "flask-docker2-5000-tcp",
                     "containerPort": 5000,
                     "hostPort": 5000,
-                    "protocol": "tcp"
+                    "protocol": "tcp",
+                    "appProtocol": "http"
                 }
             ],
             "essential": true,
             "environment": [],
+            "environmentFiles": [],
             "mountPoints": [],
-            "volumesFrom": []
+            "volumesFrom": [],
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-create-group": "true",
+                    "awslogs-group": "/ecs/flask-docker2",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
         }
     ],
-    "family": "flask-docker1",
+    "family": "flask-docker2",
     "executionRoleArn": "arn:aws:iam::041952152622:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 4,
+    "revision": 2,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
         {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
             "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
         },
         {
             "name": "ecs.capability.execution-role-ecr-pull"
@@ -37,6 +58,9 @@
         },
         {
             "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
         }
     ],
     "placementConstraints": [],
@@ -48,8 +72,12 @@
         "FARGATE"
     ],
     "cpu": "1024",
-    "memory": "2048",
-    "registeredAt": "2023-06-08T12:07:28.577Z",
-    "registeredBy": "arn:aws:iam::041952152622:user/ecs-fullaccess",
+    "memory": "3072",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "registeredAt": "2023-06-10T18:23:54.815Z",
+    "registeredBy": "arn:aws:iam::041952152622:root",
     "tags": []
 }
