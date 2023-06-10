@@ -2,7 +2,7 @@
     "taskDefinitionArn": "arn:aws:ecs:us-east-1:041952152622:task-definition/flask-docker1:4",
     "containerDefinitions": [
         {
-            "name": "demo-deploy",
+            "name": "flask-docker1",
             "image": "041952152622.dkr.ecr.us-east-1.amazonaws.com/flask-docker",
             "cpu": 1024,
             "memory": 2048,
