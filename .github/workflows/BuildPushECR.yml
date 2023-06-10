@@ -62,7 +62,7 @@ jobs:
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
-        task-definition: flask-docker1
+        task-definition: ${{ env.ECS_TASK_DEFINITION }}
         service: flask-docker1
         cluster: flask-docker1
         wait-for-service-stability: true
