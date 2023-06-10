@@ -42,7 +42,7 @@ jobs:
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
         task-definition: .github/workflows/task-definition.json
-        container-name: flask-demo1
+        container-name: flask-docker1
         image: flask_demo_image
 
     - name: Deploy Amazon ECS task definition
